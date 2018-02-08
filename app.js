@@ -16,27 +16,27 @@ const db = mongoose.connection;
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.post('/createuser', function(req, res){
+app.post('/createuser', (req, res) => {
     let value = {
         name : req.body.Name,
         email : req.body.Email,
         password : req.body.Password
     };
-    User.create(value, function(err, records){
+    User.create(value, (err, records) => {
         if(err) return res.json("err")
         else return res.json(records)
     })
 })
 
-app.get('/retrieveuser', function(req, res){
+app.get('/retrieveuser', (req, res) => {
     let value = {};
-    User.find(value, function(err, records){
+    User.find(value, (err, records) => {
         if(err) return res.json("err")
         else return res.json(records)
     })
 })
 
-app.put('/updateuserbyemail', function(req, res){
+app.put('/updateuserbyemail', (req, res) => {
     let findCriteria = {
         email : req.body.Email
     };
@@ -44,20 +44,66 @@ app.put('/updateuserbyemail', function(req, res){
         name : req.body.Name,
         password : req.body.Password
     };
-    User.update(findCriteria, updatedRecords, function(err, records){
+    User.update(findCriteria, updatedRecords, (err, records) => {
         if(err) return res.json("err")
         else return res.json(records)
     })
 })
 
-app.delete('/deleteuserbyemail', function(req, res){
+app.delete('/deleteuserbyemail', (req, res) => {
     let criteria = {
         email : req.body.Email
     };
-    User.remove(criteria, function(err){
+    User.remove(criteria, (err) => {
         if(err) return res.json("err")
         else return res.json("user deleted")
     })
 })
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+// app.post('/createuser', function(req, res){
+//     let value = {
+//         name : req.body.Name,
+//         email : req.body.Email,
+//         password : req.body.Password
+//     };
+//     User.create(value, function(err, records){
+//         if(err) return res.json("err")
+//         else return res.json(records)
+//     })
+// })
+
+// app.get('/retrieveuser', function(req, res){
+//     let value = {};
+//     User.find(value, function(err, records){
+//         if(err) return res.json("err")
+//         else return res.json(records)
+//     })
+// })
+
+// app.put('/updateuserbyemail', function(req, res){
+//     let findCriteria = {
+//         email : req.body.Email
+//     };
+//     let updatedRecords = {
+//         name : req.body.Name,
+//         password : req.body.Password
+//     };
+//     User.update(findCriteria, updatedRecords, function(err, records){
+//         if(err) return res.json("err")
+//         else return res.json(records)
+//     })
+// })
+
+// app.delete('/deleteuserbyemail', function(req, res){
+//     let criteria = {
+//         email : req.body.Email
+//     };
+//     User.remove(criteria, function(err){
+//         if(err) return res.json("err")
+//         else return res.json("user deleted")
+//     })
+// })
+
+
+
+app.listen(4000, () => console.log('Example app listening on port 4000!'))
