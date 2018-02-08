@@ -28,4 +28,36 @@ app.post('/createuser', function(req, res){
     })
 })
 
+app.get('/retrieveuser', function(req, res){
+    let value = {};
+    User.find(value, function(err, records){
+        if(err) return res.json("err")
+        else return res.json(records)
+    })
+})
+
+app.put('/updateuserbyemail', function(req, res){
+    let findCriteria = {
+        email : req.body.Email
+    };
+    let updatedRecords = {
+        name : req.body.Name,
+        password : req.body.Password
+    };
+    User.update(findCriteria, updatedRecords, function(err, records){
+        if(err) return res.json("err")
+        else return res.json(records)
+    })
+})
+
+app.delete('/deleteuserbyemail', function(req, res){
+    let criteria = {
+        email : req.body.Email
+    };
+    User.remove(criteria, function(err){
+        if(err) return res.json("err")
+        else return res.json("user deleted")
+    })
+})
+
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
