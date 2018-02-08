@@ -1,0 +1,19 @@
+{
+  "name": "crud-exp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebriksmanish/crud-exp.git"
+  },
+  "author": "manish vashisth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebriksmanish/crud-exp/issues"
+  },
+  "homepage": "https://github.com/ebriksmanish/crud-exp#readme"
+}
