@@ -38,7 +38,7 @@ app.put('/updateuserbyemail', (req, res) => {
     let findCriteria = {
         email : req.body.Email
     };
-    let updatedRecords = {
+    let updatedRecords = {  
         name : req.body.Name,
         password : req.body.Password
     };
